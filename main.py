@@ -12,11 +12,11 @@ def BedroomDoor():
         user = input("Would you like to eat the eggs?(y/n/inv): ")
     if(user == 'y'):
         print("You eat your eggs and you feel famished. You feel so full already!")
-        print("Theo: 'I love you so much my baby! Don't work too hard and get to work safe!' ")
+        print("Theo: 'I love you so much my baby! Don't work too hard and get to work safe!' \n")
         FrontDoor()
     elif(user == 'n'):
         print("Theo becomes really sad and goes back to cooking his share of breakfast. ")
-        print("Theo: 'Make sure you get to work safe.. I love you...' ")
+        print("Theo: 'Make sure you get to work safe.. I love you...' \n")
         FrontDoor()
     elif(user == "inv"):
         print(inv)
@@ -32,6 +32,7 @@ def FrontDoor():
     while(user != "forward" and user != "left" and user != "right" and user != "inv"):
         user = input("What do you want to do?(forward, left, right, inv): ")
     if(user == "forward"):
+        print()
         Workplace()
     elif(user == "left"):
         print("You walk over to your neighbors house and see that its covered in vines. It's very quiet and when you peer into the house, you don't see anything moving.")
@@ -41,8 +42,10 @@ def FrontDoor():
         while(ans != "y" and ans != "n" and ans != "inv"):
             ans = input("Do you want to go inside?(y/n/inv): ")
         if(ans == "y"):
+            print()
             Neighbor()
         elif(ans == "n"):
+            print()
             FrontDoor()
         elif(ans == "inv"):
             print(inv)
@@ -56,8 +59,10 @@ def FrontDoor():
         while(ans != "y" and ans != "n" and ans != "inv"):
             ans = input("Do you want to see what's inside?(y/n/inv): ")
         if(ans == "y"):
+            print()
             TheoCar()
         elif(ans == "n"):
+            print()
             FrontDoor()
         elif(ans == "inv"):
             print(inv)
@@ -121,10 +126,13 @@ def Main():
     while(ans != "forward" and ans != "backward" and ans != "left" and ans != "right"):
         ans = input("What would you like to do?(forward, backward, left, right): ")
     if(ans == "left"):
+        print()
         BedroomDoor()
     elif(ans == "right"):
+        print()
         NightStand()
     elif(ans == "forward"):
+        print()
         Closet()
     elif(ans == "backward"):
         print("You go back to sleep and don't care about your job. ")
