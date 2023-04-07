@@ -25,7 +25,6 @@ def BedroomDoor():
         BedroomDoor()
         
 def FrontDoor():
-    
     print("You go outside and feel the fresh warm air on your face. ")
     print("In front of you, you see your neighbor across the street mowing the lawn. You can start walking this way to get to work. ")
     print("On your left, you see your neighbor's house. Miss Johnson lives there and she's a widow. She lost her husband recently so her house has been gloomy ever since. ")
@@ -140,8 +139,6 @@ def Main():
         print("You go back to sleep and don't care about your job. ")
         print("Game Over")
         exit()
-
-Main()
 
 
 ########
@@ -346,3 +343,10 @@ def Neighbor():
 def Workplace():
     print("You arrive at your work. ")
     print("You work as a barber apprentice and your mentor's name is ")
+
+
+
+########
+########    Runtime ##########################################################################################################################################################
+########
+Main()
