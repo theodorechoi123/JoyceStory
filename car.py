@@ -53,6 +53,7 @@ def TheoCarUpdate():
                 TheoCarUpdate()
     print("You sit in Theo's car thinking if you had the key, you could go somewhere. You think to yourself you shouldn't have given the key to him. ")
     print("You go back out of the car and notice you're still late to work. So you start heading there now. \n")
+    CarWork()
 
 
 def CarWork():
@@ -68,36 +69,66 @@ def CarWork():
     if(user == "machines"):
         print("You clean the machines and get rid of all the excess yogurt. You scrub it down as fast as you can but the boss walks in soon after. ")
         print("Boss: 'Joyce? How come the place is a mess? Didn't I tell you to clean the place? I left a note!' ")
+        print()
+        CleanMachines()
+    elif(user == "cooler"):
+        print("You clean the cooler and try to figure out what orders you need to get. Once you're finished, the boss comes in. ")
+        print("Boss: 'Joyce? How come the place is a mess? Didn't I tell you to clean the place? I left a note!' ")
+        print()
+        CleanMachines()
+    elif(user == "floors"):
+        print("You clean the floor and throw away the excess trash on the ground from last night. You throw away the trash and then the boss comes in. ")
+        print("Boss: 'Joyce? I like the floors, but the yogurt machines aren't cleaned yet?! I left a note!' ")
+        print()
+        CleanMachines()
+    elif(user == "register"):
+        print("You count the money in the register to figure out how much money you have. Then the boss comes in.  ")
+        print("Boss: 'Joyce? How come the place is a mess? Didn't I tell you to clean the place? I left a note! Why are you looking through the register?!' ")
+
+
+
+def CleanMachines():
+    do = input("What do you do?(talk, inv, run, fight): ")
+    while(do != "talk" and do != "inv" and do != "run" and do != "fight"):
         do = input("What do you do?(talk, inv, run, fight): ")
-        while(do != "talk" and do != "inv" and do != "run" and do != "fight"):
-            do = input("What do you do?(talk, inv, run, fight): ")
-        if(do == "talk"):
-            print("1. I came in late to work. ")
-            print("2. I hate you. ")
-            print("3. I quit! ")
-            print("4. I tried my best, but I suck at cleaning. ")
+    if(do == "talk"):
+        print("1. I came in late to work. ")
+        print("2. I hate you. ")
+        print("3. I quit! ")
+        print("4. I tried my best, but I suck at cleaning. ")
+        ans = input("What do you say?(1, 2, 3, 4): ")
+        while(ans != "1" and ans != "2" and ans != "3" and ans != "4"):
             ans = input("What do you say?(1, 2, 3, 4): ")
-            while(ans != "1" and ans != "2" and ans != "3" and ans != "4"):
-                ans = input("What do you say?(1, 2, 3, 4): ")
-            if(ans == "1"):
-                print("Boss: 'You came in late?! You need to start being more punctual. Next time make sure to get here ON TIME!'")
-                print("Boss: 'Make sure to clean up fast. Customers are coming in soon. '")
-                print()
-                Working()
-            elif(ans == "2"):
-                print("Boss: 'What? I am YOUR BOSS. You need to treat me with some respect! YOU'RE FIRED!' ")
-                print()
-                Fired()
-            elif(ans == "3"):
-                print("Boss: 'WHAT?! YOU CAN'T QUIT! ARE YOU KIDDING ME?! WHATEVER, GET OUTTT!'")
-                print("Your boss gets heated up and starts approaching you with ill intent. ")
-                print()
-                Fight()
-            elif(ans == "4"):
-                print("Boss: 'You suck at cleaning? Aren't you the manager of this place? I hired you cause I thought you were good at your job. '")
-                print("Boss: 'I think you're lying. If you want to leave so much just say so. You can leave, I'll just clean this up. Just come back tomorrow alright?'")
-                print()
-                LeftWork()
+        if(ans == "1"):
+            print("Boss: 'You came in late?! You need to start being more punctual. Next time make sure to get here ON TIME!'")
+            print("Boss: 'Make sure to clean up fast. Customers are coming in soon. '")
+            print()
+            Working()
+        elif(ans == "2"):
+            print("Boss: 'What? I am YOUR BOSS. You need to treat me with some respect! YOU'RE FIRED!' ")
+            print()
+            Fired()
+        elif(ans == "3"):
+            print("Boss: 'WHAT?! YOU CAN'T QUIT! ARE YOU KIDDING ME?! WHATEVER, GET OUTTT!'")
+            print("Your boss gets heated up and starts approaching you with ill intent. ")
+            print()
+            Fight()
+        elif(ans == "4"):
+            print("Boss: 'You suck at cleaning? Aren't you the manager of this place? I hired you cause I thought you were good at your job. '")
+            print("Boss: 'I think you're lying. If you want to leave so much just say so. You can leave, I'll just clean this up. Just come back tomorrow alright?'")
+            print()
+            LeftWork()
+    elif(do == "inv"):
+        print(inv)
+        print()
+        CleanMachines()
+    elif(do == "fight"):
+        print()
+        Fight()
+    elif(do == "run"):
+        print("You run away from your boss and head out of the store. ")
+        print()
+        LeftWork()
 
 def LeftWork():
     print("You left work and now you don't know what to do. ")

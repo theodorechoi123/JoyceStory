@@ -1,6 +1,7 @@
 from work import *
 from johnson import *
 from car import *
+from car import TheoCar
 
 inv = []
 
