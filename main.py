@@ -160,6 +160,7 @@ def TheoCar():
     elif(user == "trunk"):
         print("You go back to the trunk and you open it. ")
         print("You see that there's nothing there but a shovel and it's clearly been used.\n ")
+        shovel = True
         TheoCar()
     elif(user == "keys"):
         print("You take the keys and put it in your pocket. \n")
@@ -303,7 +304,8 @@ def BackToTheo():
         BackToTheo()
     if(user == "talk"):
         print("1. I found dried blood in the car.")
-        print("2. I found a shovel in your car. ")
+        if(shovel):
+            print("2. I found a shovel in your car. ")
         talk = input("What do you want to say?(1, 2): ")
         while(talk != "1" and talk != "2"):
             talk = input("What do you want to say?(1, 2): ")
