@@ -1,0 +1,2 @@
+inv = []
+noseBleed = False
