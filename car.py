@@ -52,10 +52,64 @@ def TheoCarUpdate():
                 print()
                 TheoCarUpdate()
     print("You sit in Theo's car thinking if you had the key, you could go somewhere. You think to yourself you shouldn't have given the key to him. ")
-    print("You go back out of the car and notice you're still late to work. \n")
-    print("ADD MORE STUFF HERE") #NOT DONE YET
+    print("You go back out of the car and notice you're still late to work. So you start heading there now. \n")
 
 
+def CarWork():
+    print("You go to work and you still work at Yogurtland. You're the manager of the place and you were supposed to open. ")
+    print("When you get there you unlock the door and start to get to work. ")
+    print("You head to the back and you see a note that was left in the break room. ")
+    print("On the note it reads, 'Joyce make sure to clean the place, I'll be coming in at 11:00AM' ")
+    print("You check the time and it reads '10:45'")
+    print("There's not enough time so you start working right away. ")
+    user = input("What do you do first?(machines, cooler, floors, register): ")
+    while(user != "machines" and user != "cooler" and user != "floors" and user != "register"):
+        user = input("What do you do first?(machines, cooler, floors, register): ")
+    if(user == "machines"):
+        print("You clean the machines and get rid of all the excess yogurt. You scrub it down as fast as you can but the boss walks in soon after. ")
+        print("Boss: 'Joyce? How come the place is a mess? Didn't I tell you to clean the place? I left a note!' ")
+        do = input("What do you do?(talk, inv, run, fight): ")
+        while(do != "talk" and do != "inv" and do != "run" and do != "fight"):
+            do = input("What do you do?(talk, inv, run, fight): ")
+        if(do == "talk"):
+            print("1. I came in late to work. ")
+            print("2. I hate you. ")
+            print("3. I quit! ")
+            print("4. I tried my best, but I suck at cleaning. ")
+            ans = input("What do you say?(1, 2, 3, 4): ")
+            while(ans != "1" and ans != "2" and ans != "3" and ans != "4"):
+                ans = input("What do you say?(1, 2, 3, 4): ")
+            if(ans == "1"):
+                print("Boss: 'You came in late?! You need to start being more punctual. Next time make sure to get here ON TIME!'")
+                print("Boss: 'Make sure to clean up fast. Customers are coming in soon. '")
+                print()
+                Working()
+            elif(ans == "2"):
+                print("Boss: 'What? I am YOUR BOSS. You need to treat me with some respect! YOU'RE FIRED!' ")
+                print()
+                Fired()
+            elif(ans == "3"):
+                print("Boss: 'WHAT?! YOU CAN'T QUIT! ARE YOU KIDDING ME?! WHATEVER, GET OUTTT!'")
+                print("Your boss gets heated up and starts approaching you with ill intent. ")
+                print()
+                Fight()
+            elif(ans == "4"):
+                print("Boss: 'You suck at cleaning? Aren't you the manager of this place? I hired you cause I thought you were good at your job. '")
+                print("Boss: 'I think you're lying. If you want to leave so much just say so. You can leave, I'll just clean this up. Just come back tomorrow alright?'")
+                print()
+                LeftWork()
+
+def LeftWork():
+    print("You left work and now you don't know what to do. ")
+
+def Fight():
+    print("\nBATTLE START")
+
+def Fired():
+    print("You get fired from your job and get kicked out. ")
+
+def Working():
+    print("You get to work and you try to do it fast. ")
     
 def BackToTheo():
     print("You go back inside and go up to Theo who is still cooking his eggs. ")
@@ -91,7 +145,6 @@ def BackToTheo():
             BackToTheo()
     if(user == "go back to car"):
         TheoCarUpdate()
-
 
 
 TheoCar()
