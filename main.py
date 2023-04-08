@@ -1,5 +1,10 @@
-from inventory import *
+import inventory
 
+user = ""
+ans = ""
+talk = ""
+do = ""
+go = ""
 
 
 ########
@@ -20,7 +25,7 @@ def BedroomDoor():
         print("Theo: 'Make sure you get to work safe.. I love you...' \n")
         FrontDoor()
     elif(user == "inv"):
-        print(inv)
+        print(inventory.inv)
         print("")
         BedroomDoor()
         
@@ -49,7 +54,7 @@ def FrontDoor():
             print()
             FrontDoor()
         elif(ans == "inv"):
-            print(inv)
+            print(inventory.inv)
             print("")
             FrontDoor()
     elif(user == "right"):
@@ -66,11 +71,11 @@ def FrontDoor():
             print()
             FrontDoor()
         elif(ans == "inv"):
-            print(inv)
+            print(inventory.inv)
             print()
             FrontDoor()
     elif(user == "inv"):
-        print(inv)
+        print(inventory.inv)
         print()
         FrontDoor()
             
@@ -88,22 +93,22 @@ def NightStand():
     if(user == "phone"):
         print("You pick up your phone and put it in your pocket")
         print("You just aquired an item.")
-        inv.append("phone")
+        inventory.inv.append("phone")
         BedroomDoor()
     elif(user == "wallet"):
         print("You pick up your wallet and look inside. You are poor. You put it in your pocket. ")
         print("You just aquired an item.")
-        inv.append("wallet")
+        inventory.inv.append("wallet")
         BedroomDoor()
     elif(user == "lighter"):
         print("You pick up your lighter and try turning it on. It shines bright like a diamond! You put it in your pocket. ")
         print("You just aquired an item.")
-        inv.append("lighter")
+        inventory.inv.append("lighter")
         BedroomDoor()
     elif(user == "knife"):
         print("You pick up the knife and examine it. You see how sharp it is and put it in your pocket. ")
         print("You just aquired an item. ")
-        inv.append("knife")
+        inventory.inv.append("knife")
         BedroomDoor()
 
 def Main():
@@ -154,17 +159,17 @@ def TheoCar():
     while(user != "inv" and user != "keys" and user != "back" and user != "trunk"):
         user = input("What would you like to do?(inv, keys, back, trunk): ")
     if(user == "inv"):
-        print(inv)
+        print(inventory.inv)
         print()
         TheoCar()
     elif(user == "trunk"):
         print("You go back to the trunk and you open it. ")
         print("You see that there's nothing there but a shovel and it's clearly been used.\n ")
-        shovel = True
+        inventory.shovel = True
         TheoCar()
     elif(user == "keys"):
         print("You take the keys and put it in your pocket. \n")
-        inv.append("keys")
+        inventory.inv.append("keys")
         TheoCar()
     elif(user == "back"):
         print()
@@ -172,31 +177,35 @@ def TheoCar():
 
 def TheoCarUpdate():
     print("You go back to Theo's car and you sit on the driver's side. ")
-    if(noseBleed):
+    if(inventory.noseBleed):
         print("You still see the dried up blood and still wonder if it's because of his nose? ")
-    if(inv.count("keys") > 0):
+    if(inventory.inv.count("keys") > 0):
         go = input("Do you want to drive the car somewhere?(y, n): ")
         while(go != "y" and go != "n"):
             go = input("Do you want to drive the car somewhere?(y, n): ")
         if(go == "n"):
             print()
-            TheoCarUpdate()
+            print("You sit in Theo's Car, thinking on what to do. But you forgot you were late to work! ")
+            print("You go out of the car and head to work through your known shortcut. ")
+            print()
+            CarWork()
         if(go == "y"):
             loc = input("Where do you want to go?(work, across the street neighbor, nowhere): ")
             while(loc != "work" and loc != "across the street neighbor" and loc != "nowhere"):
                 loc = input("Where do you want to go?(work, across the street neighbor, nowhere): ")
             if(loc == "work"):
                 print()
-                Workplace()
+                CarWork()
             if(loc == "across the street neighbor"):
                 print()
                 OtherNeighbor()
             if(loc == "nowhere"):
                 print()
                 TheoCarUpdate()
-    print("You sit in Theo's car thinking if you had the key, you could go somewhere. You think to yourself you shouldn't have given the key to him. ")
-    print("You go back out of the car and notice you're still late to work. So you start heading there now. \n")
-    CarWork()
+    else:
+        print("You sit in Theo's Car, thinking on what to do. But you forgot you were late to work! ")
+        print("You go out of the car and head to work through your known shortcut. \n")
+        CarWork()
 
 
 def CarWork():
@@ -227,6 +236,8 @@ def CarWork():
     elif(user == "register"):
         print("You count the money in the register to figure out how much money you have. Then the boss comes in.  ")
         print("Boss: 'Joyce? How come the place is a mess? Didn't I tell you to clean the place? I left a note! Why are you looking through the register?!' ")
+        print()
+        CleanMachines()
 
 
 
@@ -262,7 +273,7 @@ def CleanMachines():
             print()
             LeftWork()
     elif(do == "inv"):
-        print(inv)
+        print(inventory.inv)
         print()
         CleanMachines()
     elif(do == "fight"):
@@ -288,37 +299,49 @@ def Working():
 def BackToTheo():
     print("You go back inside and go up to Theo who is still cooking his eggs. ")
     print("Theo: 'Oh you're back already? Did you forget something?' ")
-    user = input("What would you like to do?(inspect theo, give keys, talk, go back to car): ")
-    while(user != "inspect theo" and user != "give keys" and user != "talk" and user != "go back to car"):
+    user = ""
+    ans = ""
+    if(inventory.inv.count("keys") > 0):
         user = input("What would you like to do?(inspect theo, give keys, talk, go back to car): ")
-    if(user == "inspect theo"):
+        while(user != "inspect theo" and user != "give keys" and user != "talk" and user != "go back to car"):
+                user = input("What would you like to do?(inspect theo, give keys, talk, go back to car): ")
+    else:
+        ans = input("What would you like to do?(inspect theo, talk, go back to car): ")
+        while(ans != "inspect theo" and ans != "talk" and ans != "go back to car"):
+            ans = input("What would you like to do?(inspect theo, talk, go back to car): ")
+    if(user == "inspect theo" or ans == "inspect theo"):
         print("Theo is still wearing his pajamas from last night with his messed up hair. ")
         print("He smells awful since he just woke up and you don't think he showered this morning yet. ")
         print("He's wearing his slippers that you got for him and he seems happy this morning. \n")
         BackToTheo()
-    if(user == "give keys"):
+    if(user == "give keys" and inventory.inv.count("keys") > 0):
         print("You show him his keys. ")
         print("Theo: 'OH! My keys! I was trying to look for them earlier. Thank you! Where were they? ' ")
         print("You tell him that they were in the car. ")
         print("Theo: 'Oh, I must have left them in there overnight. My bad... Hopefully no one stole anything. But there isn't much there anyways. ' ")
         BackToTheo()
-    if(user == "talk"):
-        print("1. I found dried blood in the car.")
-        if(shovel):
+    if(user == "talk" or ans == "talk"):
+        if(inventory.shovel):
+            print("1. I found dried blood in the car.")
             print("2. I found a shovel in your car. ")
-        talk = input("What do you want to say?(1, 2): ")
-        while(talk != "1" and talk != "2"):
             talk = input("What do you want to say?(1, 2): ")
+            while(talk != "1" and talk != "2"):
+                talk = input("What do you want to say?(1, 2): ")
+        else:
+            print("1. I found dried blood in the car.")
+            talk = input("What do you want to say?(1): ")
+            while(talk != "1"):
+                talk = input("What do you want to say?(1): ")
         if(talk == "1"):
             print("Theo: 'Dried blood? I think its cause my nose was bleeding the other day. There was A LOT!")
             print("You don't remember him ever telling you about the nose bleed\n")
-            noseBleed = True
+            inventory.noseBleed = True
             BackToTheo()
-        if(talk == "2"):
+        if(talk == "2" and inventory.shovel):
             print("Theo: 'Shovel? I think its there cause remember I helped you out with your plants? We shoveled the ground in the front, remember? ")
             print("You recall that that happened but that was a year ago. Why is the shovel still in the car? \n")
             BackToTheo()
-    if(user == "go back to car"):
+    if(user == "go back to car" or ans == "go back to car"):
         TheoCarUpdate()
 
 
