@@ -294,7 +294,43 @@ def Fired():
     print("You get fired from your job and get kicked out. ")
 
 def Working():
+    print()
     print("You get to work and you try to do it fast. ")
+    print("Time goes by. You've been working your entire shift and its already dark. ")
+    print("The whole time you were working, you were wondering about Theo and how he was acting strange about the blood earlier. ")
+    print("You clock out and start walking back home. ")
+    print("As you're walking back home, you notice a cat. ")
+    print("The cat was black and was eyeing in the distance. ")
+    print("He then runs off as fast as it could. 'Black cats are a bad omen', you think to yourself. ")
+    print()
+    print("You see your house within sight, but you see this giant figure in your front yard. It seemed like a person, but it also seemed too big to be a person. ")
+    print("He hasn't seen you yet. He's just staring at your house as if it was waiting for something. ")
+    user = input("What do you want to do?(neighbor, hide, fight, inv, talk): ")
+    while(user != "neighbor" and user != "hide" and user != "fight" and user != "inv" and user != "talk"):
+        user = input("What do you want to do?(neighbor, hide, fight, inv, talk): ")
+    if(user == "neighbor"):
+        Neighbor()
+    elif(user == "hide"):
+        print()
+        print("You hide behind the tree closest to you and you wait for the person to do something.")
+        print("You wait there for a whole ten minutes and it finally leaves. ")
+        print("It finally walks away onto the street and starts sprinting down the street away from the house. ")
+        print("As he goes away, you finally go inside your house. ")
+        TheoHouse()
+
+def Neighbor():
+    print()
+    print("You go to your neighbors house and knocking on the door quickly. ")
+    print("No one answers the door. You look around by peering through the windows but no one's home. ")
+
+def TheoHouse():
+    print()
+    print("You open the front door and you see Theo cooking dinner. ")
+    print("Theo: 'Hi babyy! How was work? I made you some Pesto! ")
+    user = input("What do you do?(talk, eat, go to your room, inv): ")
+    while(user != "talk" and user != "eat" and user != "go to your room" and user != "inv"):
+        user = input("What do you do?(talk, eat, go to your room, inv): ")
+
     
 def BackToTheo():
     print("You go back inside and go up to Theo who is still cooking his eggs. ")
@@ -319,6 +355,7 @@ def BackToTheo():
         print("Theo: 'OH! My keys! I was trying to look for them earlier. Thank you! Where were they? ' ")
         print("You tell him that they were in the car. ")
         print("Theo: 'Oh, I must have left them in there overnight. My bad... Hopefully no one stole anything. But there isn't much there anyways. ' ")
+        inventory.inv.remove("keys")
         BackToTheo()
     if(user == "talk" or ans == "talk"):
         if(inventory.shovel):
@@ -352,14 +389,6 @@ def BackToTheo():
 
 def OtherNeighbor():
     print("You use the car to go cross the street to see your neighbor. ")
-
-########
-########    Neighbor Story #################################################################################################################################################
-########
-
-
-def Neighbor():
-    print("You enter the house. ")
 
 ########
 ########    Work Story #################################################################################################################################################
